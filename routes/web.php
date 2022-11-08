@@ -100,3 +100,10 @@ Route::post("EditBrief/update/{id}", [Task_management::class, "updateTask"]);
 Route::get("EditBrief/TaskDelete/{id}", [Task_management::class, 'taskdelete']);
 Route::get("/searchbrief", [Searchnado::class, 'searchbrief']);
 Route::get("/searchbrief/{input}", [Searchnado::class, 'searchbrief']);
+//----------- lets assign hehe YA boih------------
+
+Route::get("/BriefAssign/{id}", [brief_management::class, 'displayApprentices']);
+Route::get('/BriefAssign/{briefId}/Attach/{id}', [brief_management::class, 'attachBrief']);
+Route::get('/BriefAssign/{briefId}/Detach/{id}', [brief_management::class, 'detachBrief']);
+//-------assign for all promotions------------------------------------------------
+Route::get('BriefAssign/{briefId}/AttachClass', [brief_management::class, 'assignClass']);

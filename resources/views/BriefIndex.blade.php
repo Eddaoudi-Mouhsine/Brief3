@@ -17,14 +17,13 @@
             
 
             <th scope="col">Brief Name</th>
-
             <th scope="col">Brief creation date</th>
-
             <th scope="col">Brief recuperation date</th>
-
+            <th scope="col">Brief Assignement</th>
             <th scope="col">Action</th>
-
             <th scope="col">Add task</th>
+
+
 
 
 
@@ -37,6 +36,8 @@
             <td>{{$row->name}}</td>
             <td>{{$row->creation_date}}</td>
             <td>{{$row->recuperation_date}}</td>
+            <td><a  href="/BriefAssign/{{$row->id}}"><button class="btn btn-primary">Assign</button></td>
+
 
 
             <td>

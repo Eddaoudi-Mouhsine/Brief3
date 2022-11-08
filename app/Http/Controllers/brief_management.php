@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Brief;
 use App\Models\Task;
+use App\Models\Apprentice;
 
 class brief_management extends Controller
 {
@@ -46,5 +47,33 @@ class brief_management extends Controller
     {
         Brief::where('id', $id)->delete();
         return redirect("BriefIndex");
+    }
+
+    public function displayApprentices($id)
+    {
+        $data = Apprentice::all();
+        $briefId = $id;
+        return view("BriefAssignement", compact('data', 'briefId'));
+    }
+
+    public function attachBrief($briefId, $id)
+    {
+        $apprentice = Apprentice::where('id', $id)->first();
+        $apprentice->assignedBrief()->attach($briefId);
+        return redirect('BriefAssign/' . $briefId);
+    }
+    public function detachBrief($briefId, $id)
+    {
+        $apprentice = Apprentice::where('id', $id)->first();
+        $apprentice->assignedBrief()->detach($briefId);
+        return redirect('BriefAssign/' . $briefId);
+    }
+    public function assignClass($briefId)
+    {
+        $apprentice = Apprentice::all();
+        foreach ($apprentice as $app) {
+            $app->assignedBrief()->attach($briefId);
+        }
+        return redirect('BriefAssign/' . $briefId);
     }
 }

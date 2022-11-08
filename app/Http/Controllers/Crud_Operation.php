@@ -6,6 +6,8 @@ use App\Models\promotion;
 use Illuminate\Http\Request;
 use App\Models\Apprentice;
 use Illuminate\Support\Facades\DB;
+use App\Models\Brief;
+
 
 
 class Crud_Operation extends Controller
@@ -39,9 +41,22 @@ class Crud_Operation extends Controller
             ->select('apprentices.*')
             ->where('promotions.id', $id)
             ->get();
+
+
+
         $data = promotion::where('id', $id)->get();
 
-        return view("Edit", compact('student', 'data'));
+        $apprentice = Apprentice::where('promotion_id', $id)->get();
+        $d = [];
+        foreach ($apprentice as $item) {
+
+            $d[] = $item->assignedBrief;
+        }
+
+
+
+
+        return view("Edit", compact('student', 'data', 'd'));
     }
     //fct for inserting the modified data coming from the update post route champ
     public function update(Request $req, $id)

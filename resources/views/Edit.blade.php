@@ -23,7 +23,6 @@
     @endforeach
 </div>
 
-
 <div id="container3">
     <table class="table table-sm table-dark"id="apprenant">
         <thead>
@@ -53,6 +52,26 @@
             @endforeach   
         </tbody>
     </table>
+    <div class="bg-primary">
+    @foreach ($d as $item)
+        @for($i = 0; $i <count($item); $i++)
+        
+        
+                <span>
+                 {{$item[$i]->name}}
+                </span>
+                <span>{{$item[$i]->pivot->apprentice_id }}</span>
+
+
+        
+    
+        
+        
+        @endfor
+    @endforeach
+    </div>
+
+    
 
 
 
