@@ -3,12 +3,18 @@
 <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 <link rel="stylesheet" href="/app.css">
 
+<nav id="nav">
+    <img  width="2%"  src = "/business-management-icon.svg" alt="My Happy SVG"/>
+    <a   href="/BriefIndex"><button id="buttonindex" >Briefs management</button></a>   
+    <a  href="http://127.0.0.1:8000/index"><button id="promopage">Promotion Page</button></a>
+    <a href="{{$briefId}}/AttachClass/{{$data[0]->id}}"><button id="buttonindex">Attach to class</button></a>
+  
+</nav>
 
 
+<div id="display">
 
-<div id="container3">
-
-<table class="table table-sm table-dark"id="apprenant">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th scope="col"> first name</th>
@@ -27,6 +33,7 @@
             <td>
                 <a href="{{$briefId}}/Attach/{{$entry->id}}"><button class="btn btn-primary">Attach</button></a>
                 <a href="{{$briefId}}/Detach/{{$entry->id}}"><button class="btn btn-danger">Detach</button></a>
+
             </td>
         </tr>
         
@@ -39,4 +46,3 @@
 
 </table>
 </div>
-<a href="{{$briefId}}/AttachClass/"><button class="btn btn-info">Attach to class</button></a>

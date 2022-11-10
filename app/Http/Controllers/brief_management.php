@@ -58,20 +58,36 @@ class brief_management extends Controller
 
     public function attachBrief($briefId, $id)
     {
-        $apprentice = Apprentice::where('id', $id)->first();
-        $apprentice->assignedBrief()->attach($briefId);
-        return redirect('BriefAssign/' . $briefId);
+
+
+
+        $brief = Brief::where('id', $briefId)->first();
+        $student = Apprentice::where('id', $id)->first();
+        if ($student->assignedBrief()->exists()) {
+            $student->assignedBrief()->detach($briefId);
+            $student->assignedBrief()->save($brief);
+            return redirect('BriefAssign/' . $briefId);
+        } else {
+
+
+            $student->assignedBrief()->save($brief);
+
+            return redirect('BriefAssign/' . $briefId);
+        }
     }
     public function detachBrief($briefId, $id)
     {
         $apprentice = Apprentice::where('id', $id)->first();
         $apprentice->assignedBrief()->detach($briefId);
-        return redirect('BriefAssign/' . $briefId);
+        return redirect('BriefAssign/' . $briefId)->with('brief', 'brief Detached successfully.');
     }
-    public function assignClass($briefId)
+    public function assignClass($briefId, $id)
     {
         $apprentice = Apprentice::all();
         foreach ($apprentice as $app) {
+            if ($app->assignedBrief()->exists()) {
+                $app->assignedBrief()->detach($briefId);
+            }
             $app->assignedBrief()->attach($briefId);
         }
         return redirect('BriefAssign/' . $briefId);

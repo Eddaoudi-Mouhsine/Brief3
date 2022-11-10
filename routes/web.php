@@ -106,4 +106,4 @@ Route::get("/BriefAssign/{id}", [brief_management::class, 'displayApprentices'])
 Route::get('/BriefAssign/{briefId}/Attach/{id}', [brief_management::class, 'attachBrief']);
 Route::get('/BriefAssign/{briefId}/Detach/{id}', [brief_management::class, 'detachBrief']);
 //-------assign for all promotions------------------------------------------------
-Route::get('BriefAssign/{briefId}/AttachClass', [brief_management::class, 'assignClass']);
+Route::get('BriefAssign/{briefId}/AttachClass/{id}', [brief_management::class, 'assignClass']);

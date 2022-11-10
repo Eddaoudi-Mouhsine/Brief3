@@ -6,19 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>brief adding Page</title>
     <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/app.css">
+    
 
 </head>
 <body>
-    <div id="container">
+    
+        
 
-    <form action="" method="POST">
+    <form id="containerAddBrief"class="form-inline" action="" method="POST">
         @csrf
-        <input id="typing" type="text" name="name" placeholder="brief name ">
-        <input id="typing" type="date" name="creation_date" >
-        <input id="typing" type="date" name="recupration_date">
+            <label >Brief Name:</label>
+        <input id ="addpromoinput"  type="text" name="name">
+        <label >Brief Creation Date:</label>
+        <input id ="addpromoinput" type="date" name="creation_date" >
+        <label >Brief Recuperation Date:</label>
+        <input id ="addpromoinput"  type="date" name="recupration_date">
 
 
-        <input id="click" type="submit" name="submit">
+        <input id="addpromobutton" type="submit" name="submit">
+    
+
     </form>
     
 </body>

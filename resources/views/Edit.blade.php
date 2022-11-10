@@ -8,20 +8,42 @@
 
 
 <nav id="nav">
-    <a id="addStudent" href="{{url("Studentadd")}}/{{$data[0]->id}}">Add Student</a>
-    <input type="text" id="searchstudent"  placeholder="Search">
+    <a class="addstudent" href="{{url("Studentadd")}}/{{$data[0]->id}}">Add Student</a>
+    <input type="text" class="search"  placeholder="Search">
 </nav>
   
-<div id="container">
+<div id="containerpromoModified">
+<div class="promo"> Brief Assigned to Promotion:</div>
+<div class="promo">
+    @foreach ($uniqueD as $item)
+    @for($i = 0; $i <count($item); $i++)
+    
+    
+            <span>
+             {{$item[$i]->name}}
+            </span>
+
+
+    
+
+    
+    
+    @endfor
+@endforeach
+        </div>
+<div>
+
     @foreach ($data as $row)
     
     <form action="{{url('update')}}/{{$row->id}}" method="post">
     @csrf
-    <input id="modify" type="text" value="{{$row->name}}" name="name">
-    <button id="modifyButton">Update</button>
+    <input class="promoteEditInput"  type="text" value="{{$row->name}}" name="name">
+    <button class="promoteEditButton" >Update</button>
     </form>
     @endforeach
 </div>
+</div>
+
 
 <div id="container3">
     <table class="table table-sm table-dark"id="apprenant">
@@ -52,24 +74,7 @@
             @endforeach   
         </tbody>
     </table>
-    <div class="bg-primary">
-    @foreach ($d as $item)
-        @for($i = 0; $i <count($item); $i++)
-        
-        
-                <span>
-                 {{$item[$i]->name}}
-                </span>
-                <span>{{$item[$i]->pivot->apprentice_id }}</span>
-
-
-        
     
-        
-        
-        @endfor
-    @endforeach
-    </div>
 
     
 
