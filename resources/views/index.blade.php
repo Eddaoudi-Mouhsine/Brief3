@@ -7,14 +7,19 @@
 
 
 
+<nav id="nav">
+    <img  width="2%"  src = "/business-management-icon.svg" alt="My Happy SVG"/>
+    <input class="search"  type="text" id="search"  placeholder="Search">
+    <a   href="/BriefIndex"><button id="buttonindex" >Briefs management</button></a>   
+    <a  href="/add"><button id="buttonindex">Add a promotion</button></a> 
 
-<h1 id="title" class=" text-center">Promotion Management</h1>
+
+
+</nav>
+
 <div id="display">
-    <a  href="/BriefIndex"><button id="click">Briefs management</button></a>   
 
-    <a  href="/add"><button id="click">Add a promotion</button></a>   
-    <input class="form-outline"  type="text" id="search"  placeholder="Search">
-    <table class="table table-sm table-dark" >
+    <table  class="table table-bordered" >
     <thead>
         <tr>
             <th scope="col">promotion id</th>

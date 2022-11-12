@@ -8,32 +8,38 @@
 
 
 <nav id="nav">
+    <a  href="/addTask/{{$brief[0]->id}}"><button id="buttonindex" >Add Task</button></a>
+    <a   href="/BriefIndex"><button id="buttonindex" >Briefs management</button></a>   
+
+
 </nav>
   
     @foreach ($brief as $row)
-    <a  href="/addTask/{{$row->id}}"><button class="btn btn-primary">Add Task</button></a>
-
-    <form action="{{url('updateBrief')}}/{{$row->id}}" method="post">
+    <form id="containerEditBrief" action="{{url('updateBrief')}}/{{$row->id}}" method="post">
 
     @csrf
-    <input id="modify" type="text" value="{{$row->name}}" name="name">
-    <input  type="date" value="{{$row->creation_date}}" name="creation_date">
-    <input   type="date" value="{{$row->recuperation_date}}" name="recuperation_date">
-    <button >Update</button>
+    <input id ="addpromoinput" style="width: 50%"  type="text" value="{{$row->name}}" name="name">
+    <input id ="addpromoinput" type="date" value="{{$row->creation_date}}" name="creation_date">
+    <input id ="addpromoinput"  type="date" value="{{$row->recuperation_date}}" name="recuperation_date">
+    <button id="addpromobutton" >Update</button>
     </form>
     @endforeach
-    <table class="table table-sm table-dark"id="apprenant">
+    <div id="display">
+
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th scope="col">  name</th>
                 <th scope="col"> starting date</th>
                 <th scope="col">finishing date</th>
                 <th scope="col">description</th>
+                <th scope="col">Action</th>
+
              
             </tr>
 
         </thead>
-        <tbody id ="contentStudent">
+        <tbody >
             @foreach ($briefDATA as $entry)         
             <tr>
                 <td scope="col">{{$entry->name}}</td>
@@ -53,3 +59,4 @@
             @endforeach   
         </tbody>
     </table>
+    </div>

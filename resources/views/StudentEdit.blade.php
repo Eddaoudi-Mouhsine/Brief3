@@ -2,7 +2,7 @@
 
 @foreach ($data as $row)
     
-<form action="{{url('Edit/update')}}/{{$row->id}}" method="post">
+<form id ="formEditStudent"action="{{url('Edit/update')}}/{{$row->id}}" method="post">
     @csrf
     <label>firstname:</label>
     <input id="studentEditInput" type="text" value="{{$row->first_name}}" name="first_name">

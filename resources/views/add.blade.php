@@ -9,12 +9,19 @@
 
 </head>
 <body>
-    <div id="container">
+    <nav id="nav">
+        <img  width="2%"  src = "/business-management-icon.svg" alt="My Happy SVG"/>
+        <a   href="/BriefIndex"><button id="buttonindex" >Briefs management</button></a>   
+    
+    
+    
+    </nav>
+    
 
-    <form action="add"method="Post">
+    <form  id="container" action="add"method="Post">
         @csrf
-        <input id="typing" type="text" name="name" placeholder="add promotion">
-        <input id="click" type="submit" name="submit">
+        <input id ="addpromoinput" type="text" name="name" placeholder="add promotion">
+        <input id ="addpromobutton" type="submit" name="submit">
     </form>
     
 </body>
